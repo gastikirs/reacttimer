@@ -2,7 +2,13 @@
 	background-color: $nav-background;
 }
 
-.top-bar
+.top-bar {
 	.menu-text {
 		color: $nav-text-color;
+
+	.active-link {
+		font-weight: 700;
 	}
+
+}
+
