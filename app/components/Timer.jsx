@@ -8,7 +8,7 @@ var Timer = React.createClass({
 	getInitialState: function() {
 		return {
 			count: 0,
-			timerStatus: 'paused'			
+			timerStatus: 'stopped'			
 		}
 	},
 
@@ -26,6 +26,10 @@ var Timer = React.createClass({
 					break;
 			}
 		}
+	},
+
+	componentWillUnmount: function() {
+		clearInterval(this.timer);
 	},
 
 	startTimer: function() {
@@ -46,7 +50,7 @@ var Timer = React.createClass({
 			<div>
 				<h1 className="page-title">Timer App</h1>
 				<Clock totalSeconds={count}/>
-				<Controls appType="timer" timerStatus={timerStatus} onStatusChange={this.handleStatusChange}/>
+				<Controls timerStatus={timerStatus} onStatusChange={this.handleStatusChange}/>
 			</div>
 		);
 	}
